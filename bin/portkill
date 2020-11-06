@@ -1,0 +1,28 @@
+#!/bin/bash
+
+help(){
+
+me=`basename "$0"`
+cat << EOF
+Usage: $me <PORT_TO_KILL>
+EOF
+
+}
+
+arg_num=$#
+[ $arg_num -lt 1 ] && {
+	echo "Invalid number of arguents"
+	help
+	exit 1
+}
+
+
+port=$1
+pid=$(sudo lsof -t -i tcp:$port);
+if [[ ! $pid -eq '' ]];
+then 
+    kill -9 $pid;
+    echo "Pid: $pid that using ${port} killed"
+else 
+    echo "No process found on port"
+fi
