@@ -5,7 +5,7 @@
 4. [Configuration](./CONFIGURATION.md)
 
 # Scripts
-## Tureng
+### Tureng
 python script what provides translation CLI based on [tureng](https://tureng.com)
 
 ```
@@ -13,13 +13,13 @@ Usage: tureng [-m] <word1> <word2> .. <word n>
 Options:
   -m     to get detailed info about word
 ```
-### Example
+#### Example
 ```
 tureng car
 ```
 **Output:** [example_output.png](./docs/ex_tureng.png)
 
-## JDK Installer
+### JDK Installer
 to install Java JDK from *tar* archive from given path
 
 ```
@@ -28,7 +28,7 @@ Options:
   JDK_ARCHIVE_PATH      Path to JDK Archive file to install
 ```
 
-## portkill
+### portkill
 to kill a process that allocates given port
 ```
 Usage: portkill <port>
