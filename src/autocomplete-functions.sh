@@ -30,13 +30,13 @@ action() {
   shift
   args=$@
   
-  echo "opt=$opt"
-  echo "args=$args"
+  # echo "opt=$opt"
+  # echo "args=$args"
 
   # exit 1
   if [ "${opt_array[$opt]}" ]; then
     value=${opt_array[$opt]}
-    echo "Value is : $value"
+    # echo "Value is : $value"
     if [[ $value == f:* ]]; then
       filename=${value:2}
       eval "$MAESCRIPT_USER_CONFIG_DIR/$filename ${args}"
