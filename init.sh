@@ -5,7 +5,7 @@ shell_mode=$1
 MAESCRIPT_VERSION="v1.00-beta"
 
 # Prefix for AutoComplete Scripts
-MAESCRIPT_PREFIX="mae"
+MAESCRIPT_PREFIX=${MAESCRIPT_PREFIX:-"mae"}
 
 # Configuration Directory that Maescript will be stored
 MAESCRIPT_USER_CONFIG_DIR=$(eval echo ~$USER)/.config/maescript
