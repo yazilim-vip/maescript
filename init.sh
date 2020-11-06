@@ -2,7 +2,7 @@
 shell_mode=$1
 
 # Current Version of Maescript
-MAESCRIPT_VERSION="v1.00-beta"
+MAESCRIPT_VERSION="v1.00"
 
 # Prefix for AutoComplete Scripts
 MAESCRIPT_PREFIX=${MAESCRIPT_PREFIX:-"mae"}
