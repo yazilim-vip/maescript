@@ -19,7 +19,7 @@ esac
 MAESCRIPT_HOME=$SCRIPT_DIR
 
 # Current Version of Maescript
-MAESCRIPT_VERSION="v1.00"
+MAESCRIPT_VERSION="v1.00-beta"
 
 # Prefix for AutoComplete Scripts
 MAESCRIPT_PREFIX="mae"
@@ -36,6 +36,7 @@ PATH=$PATH:$MAESCRIPT_HOME/bin
 # Aliases
 alias reconf='source ~/.bashrc'
 
+# Source Scripts
 source $MAESCRIPT_HOME/src/autocomplete-functions.sh
 source $MAESCRIPT_HOME/src/user-configuration.sh
 source $MAESCRIPT_HOME/src/$shell_mode/init.sh

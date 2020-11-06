@@ -12,7 +12,6 @@ declare -A MAESCRIPT_CDIR_DIRECTORIES=(
 declare -A MAESCRIPT_DOACTION_ACTIONS=(
   [tureng]='b:tureng'
   [portkill]='b:portkill'
-  [slichecker]='$MAESCRIPT_HOME/bin/SLI-Checker/SLISearcher.py --settings $MAESCRIPT_HOME/bin/SLI-Checker/settings.json'
   [installjdk]='b:jdk-install'
   [version]='echo "Currently you are using ${MAESCRIPT_VERSION}"'
   [update]="cd $MAESCRIPT_HOME && git pull origin main"
