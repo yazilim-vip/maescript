@@ -32,6 +32,7 @@ action_complete() {
 }
 
 
+echo "$MAESCRIPT_HOME"
 ZSH_AUTOCOMPLETION_DIR=$MAESCRIPT_HOME/zsh-completions
 rm -rf ${ZSH_AUTOCOMPLETION_DIR}
 mkdir -p ${ZSH_AUTOCOMPLETION_DIR}

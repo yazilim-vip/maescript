@@ -64,6 +64,7 @@ configure(){
 	fi
 	echo "Adding maescript to the $conf_file file"
 	echo "# maescript" >> $conf_file
+	echo "MAESCRIPT_HOME=$MAESCRIPT_HOME" >> $conf_file
 	echo "source $MAESCRIPT_HOME/init.sh ${CURRENT_SHELL}" >> $conf_file
 }
 
