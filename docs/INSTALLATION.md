@@ -2,6 +2,8 @@
 1. Installation
 2. [Scripts](./SCRIPTS.md)
 3. [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md)
+4. [Configuration](./CONFIGURATION.md)
+
 
 ## Install with Setup Script
 **Bash**
@@ -26,7 +28,3 @@ zsh -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/mai
    MAESCRIPT_HOME=/path/to/repo
    source /path/to/repo/init.sh zsh
    ```
-
-# Options
-MAESCRIPT_PREFIX=customprefix
-.
