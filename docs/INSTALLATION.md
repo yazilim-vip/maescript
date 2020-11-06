@@ -1,4 +1,7 @@
 [<< home](../README.md)
+1. Installation
+2. [Scripts](./docs/SCRIPTS.md)
+3. [Auto-Complete Functions](./docs/AUTO_COMPLETE_FUNCTIONS.md)
 
 ## Install with Setup Script
 **Bash**

@@ -1,4 +1,8 @@
 [<< home](../README.md)
+1. [Installation](./docs/INSTALLATION.md)
+2. [Scripts](./docs/SCRIPTS.md)
+3. Auto-Complete Functions
+
 
 # Auto-Complete Functions
 There are pre-defined functions that could be auto-complete options added
