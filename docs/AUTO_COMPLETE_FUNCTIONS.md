@@ -1,6 +1,6 @@
-[<< home](../README.md)
-1. [Installation](./docs/INSTALLATION.md)
-2. [Scripts](./docs/SCRIPTS.md)
+.[<< home](../README.md)
+1. [Installation](./INSTALLATION.md)
+2. [Scripts](./SCRIPTS.md)
 3. Auto-Complete Functions
 
 
