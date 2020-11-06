@@ -2,7 +2,6 @@ Very useful set of linux commands
 
 # Features
 ## Scripts
-
 ### Tureng
 python script what provides translation CLI based on [tureng](https://tureng.com)
 
@@ -37,6 +36,14 @@ Options:
 (documentation will be updated in time)
 
 **NOTE** Currently only bash fully supported. zsh **partially** supported
+
+
+## Auto-Complete Functions
+There are pre-defined functions that could be auto-complete options added
+
+### Cdir
+### Doaction 
+### Conn
 
 # Installation
 
