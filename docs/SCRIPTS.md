@@ -1,7 +1,7 @@
 [<< home](../README.md)
-1. [Installation](./docs/INSTALLATION.md)
+1. [Installation](./INSTALLATION.md)
 2. Scripts
-3. [Auto-Complete Functions](./docs/AUTO_COMPLETE_FUNCTIONS.md)
+3. [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md)
 
 # Scripts
 ## Tureng
