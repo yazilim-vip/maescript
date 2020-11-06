@@ -1,22 +1,5 @@
 # Locate Script DIR
 shell_mode=$1
-case $shell_mode in
-    zsh)
-        x=${(%):-%N}
-        SCRIPT_DIR=${x:A:h}
-        ;;
-
-    bash)
-	    SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-        ;;
-    *)
-        echo "Failed to detect shell_mode"
-        exit 1
-        ;;
-esac
-
-# Installation Directory of Maescript
-MAESCRIPT_HOME=$SCRIPT_DIR
 
 # Current Version of Maescript
 MAESCRIPT_VERSION="v1.00-beta"

@@ -1,6 +1,8 @@
 ############################
 # Helper Functions
 ############################
+
+ 
 # Function that get possible options for the desired command
 action_complete() {
 

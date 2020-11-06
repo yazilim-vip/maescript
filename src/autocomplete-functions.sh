@@ -25,20 +25,27 @@ declare -A MAESCRIPT_CONN_REMOTES=()
 action() {
   # getting options array
   eval "declare -A opt_array=${1#*=}"
+  shift
+  opt=$1
+  shift
+  args=$@
+  
+  # echo "opt=$opt"
+  # echo "args=$args"
 
-  if [ "${opt_array[$2]}" ]; then
-    value=${opt_array[$2]}
-    #echo "Value is : $value"
+  # exit 1
+  if [ "${opt_array[$opt]}" ]; then
+    value=${opt_array[$opt]}
+    # echo "Value is : $value"
     if [[ $value == f:* ]]; then
-      #echo "Loding file ;)"
       filename=${value:2}
-      eval "$MAESCRIPT_USER_CONFIG_DIR/$filename ${*:3}"
+      eval "$MAESCRIPT_USER_CONFIG_DIR/$filename ${args}"
     elif [[ $value == b:* ]]; then
       #echo "Executing Command directly"
       filename=${value:2}
-      eval "$MAESCRIPT_HOME/bin/$filename ${*:3}"
+      eval "$MAESCRIPT_HOME/bin/$filename ${args}"
     else
-      eval "$value ${*:3}"
+      eval "$value ${args}"
     fi
   else
     echo "Option Not Found"
