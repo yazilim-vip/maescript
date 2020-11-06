@@ -7,7 +7,7 @@
 # Configuration
 There are some extra variables that you could be used for custom configuration.
 
-## MAESCRIPT_PREFIX
+### MAESCRIPT_PREFIX
 This variable has default value **mae**. You should set a value for this variable before loading maescript. \
 **E.g. .bashrc file**
 MAESCRIPT_PREFIX=custom

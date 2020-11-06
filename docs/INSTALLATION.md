@@ -4,8 +4,9 @@
 3. [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md)
 4. [Configuration](./CONFIGURATION.md)
 
+# Installation
 
-## Install with Setup Script
+### Install with Setup Script
 **Bash**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/main/install.sh)"
@@ -16,7 +17,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/ma
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/main/install.sh)"
 ```
 
-## Install manually
+### Install manually
 1. Clone repository into a directory
 2. For bash; add following lines to your .bashrc file
    ```sh
