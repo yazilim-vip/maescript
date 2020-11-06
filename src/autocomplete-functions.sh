@@ -15,7 +15,7 @@ declare -A MAESCRIPT_DOACTION_ACTIONS=(
   [installjdk]='b:jdk-install'
   [version]='echo "Currently you are using ${MAESCRIPT_VERSION}"'
   [update]="cd $MAESCRIPT_HOME && git pull origin main"
-  [confexport]='echo "Taking backup..." && cd $MAESCRIPT_USER_CONFIG_DIR && tar cvfz "$MAESCRIPT_USER_BACUP_DIR/`date +%Y%m%d%H%M`-maescript_conf_backup.tar.gz" conf.d/*'
+  [confexport]='echo "Taking backup..." && cd $1 && tar cvfz "$MAESCRIPT_USER_BACUP_DIR/`date +%Y%m%d%H%M`-maescript_conf_backup.tar.gz" conf.d/*'
 )
 
 # Connection
