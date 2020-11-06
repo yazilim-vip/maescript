@@ -1,0 +1,182 @@
+#!/bin/bash
+
+help(){
+
+me=`basename "$0"`
+cat << EOF
+Usage: $me <JDK_ARCHIVE_PATH>
+Options:
+  JDK_ARCHIVE_PATH	Path to JDK Archive file to install
+EOF
+
+}
+
+arg_num=$#
+[ $arg_num -lt 1 ] && {
+	echo "Invalid number of arguents"
+	help
+	exit 1
+}
+
+
+cat << EOF
+
+#--------------------------------
+# Init Variables
+#--------------------------------
+EOF
+
+	# Full path and name of JDK Archive
+        JDK_ARCHIVE_PATH=$1
+		JDK_ARCHIVE_NAME=$(basename -- "$JDK_ARCHIVE_PATH")
+
+	# Working Directory
+		WORK_DIR="/tmp/$JDK_ARCHIVE_NAME"	
+
+	echo "- Workdir: $WORK_DIR"
+	echo "- JDK_ARCHIVE_PATH: $JDK_ARCHIVE_PATH"
+	echo "- JDK_ARCHIVE_NAME: $JDK_ARCHIVE_NAME"
+
+	
+cat << EOF
+
+#--------------------------------
+# Init Working Directory
+#--------------------------------
+EOF
+	echo "- Creating Temp Work Directory..."
+	mkdir -p "$WORK_DIR"
+
+
+cat << EOF
+
+#--------------------------------
+# Extracting JDK from Archive
+#--------------------------------
+EOF
+	echo "- Extracting JDK to workdir..."
+	tar -xvf "$JDK_ARCHIVE_PATH" -C "$WORK_DIR" > /dev/null
+
+	if [ $? -gt 0 ];
+	then
+		echo "!! An error occured while extracting JDK from archive."
+		exit 1
+	fi
+
+	echo "- Checking Archive format..."
+	file_count=$(ls -1 $WORK_DIR | wc -l)
+	if [ $file_count -ne 1 ];
+	then
+		echo "!! Unsupported JDK Archive format"
+		exit 1
+	fi
+
+	echo "- Check if x64 or x86"
+	if [ `getconf LONG_BIT` = "64" ];
+	then
+		echo "- I'm 64-bit"
+	
+	else
+		echo "- I'm 32-bit. Cannot install JDK yet :))"
+		exit 1
+	fi
+
+
+cat << EOF
+
+#--------------------------------
+# Installing JDK
+#--------------------------------
+EOF
+
+	echo "- Creating JVM directory if not exists..."
+		sudo mkdir -p /usr/lib/jvm
+
+	echo "- Home Path OF JDK to be installed"
+	JDK_FOLDER_NAME=$(ls $WORK_DIR)
+	JDK_HOME_PATH="/usr/lib/jvm/$JDK_FOLDER_NAME"
+	echo " - JDK_FOLDER_NAME: $JDK_FOLDER_NAME"
+	echo " - JDK_HOME_PATH: $JDK_HOME_PATH"
+
+
+	echo "- Moving JDK Extracted from Archive under /usr/lib/jvm ..."
+
+	if [ -d $JDK_HOME_PATH ];
+	then
+		echo "- JDK installation found at: $JDK_HOME_PATH."
+		echo -n "- Would you like to override existing installation (y/n)? "
+		read answer
+		if echo "$answer" | grep -iq "^y" ;then
+			echo "Yes"
+			sudo rm -rf $JDK_HOME_PATH
+		fi
+	fi
+	sudo mv "$WORK_DIR/$JDK_FOLDER_NAME" "$JDK_HOME_PATH" > /dev/null
+	if [ $? -gt 0 ];
+	then
+		echo "!! An error occured while moving JDK under /usr/lib/jvm"
+		exit 1
+	fi
+
+	echo "- Re-link java"
+		if [ -L /usr/bin/java ]; 
+		then
+			echo " - /usr/bin/java already exists Re-linking"
+			sudo unlink /usr/bin/java
+		fi
+		sudo ln -s "$JDK_HOME_PATH/bin/java" /usr/bin/java
+		
+	# Re-link javac	
+		if [ -L /usr/bin/javac ]; 
+		then
+			echo " - /usr/bin/javac already exsits. Re-linking"
+			sudo unlink /usr/bin/javac
+		fi
+		sudo ln -s "$JDK_HOME_PATH/bin/javac" /usr/bin/javac
+		
+	# Re-link javaws
+		if [ -L /usr/bin/javaws ]; 
+		then
+			echo " - /usr/bin/javaws already exsits. Re-linking"
+			sudo unlink /usr/bin/javaws
+		fi
+		sudo ln -s "$JDK_HOME_PATH/bin/javaws" /usr/bin/javaws
+
+
+cat << EOF
+
+#--------------------------------
+# Finalizing Script
+#--------------------------------
+EOF
+	echo "JDK Deployed to: $JDK_HOME_PATH"
+	echo -n "Add Java paths to /etc/environment (y/n)? "
+	read answer
+	if echo "$answer" | grep -iq "^y" ;then
+		echo Yes
+		echo "- Adding Paths"
+		sudo bash -c  "cat >> /etc/environment" <<EOL
+JAVA_HOME=$JDK_HOME_PATH
+EOL
+
+	else
+		echo No
+	fi
+
+	#Reload
+		source /etc/environment
+
+	# Checking JAVA_HOME variables
+		echo "JAVA_HOME=$JAVA_HOME"
+
+	#Reboot
+		echo -n "If JAVA_HOME path is not printing you need reboot (y/n) Yes or No (I'll do it manuel)? "
+ 		read answer
+		if echo "$answer" | grep -iq "^y" ;then
+			echo Yes
+			sudo reboot
+		else
+			echo No
+		fi
+
+	sudo rm -rf $WORK_DIR

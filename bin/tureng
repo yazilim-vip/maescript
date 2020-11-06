@@ -1,0 +1,131 @@
+#!/usr/bin/python3
+
+# simple turen python bot
+
+from terminaltables import AsciiTable
+
+from bs4 import BeautifulSoup
+import requests
+import sys
+
+# check if enough arguments given
+if len(sys.argv) < 2 :
+    print("tureng [-m] word")
+    print("\t-m to get detailed info about word  ")
+    exit(1)
+
+# process arguments
+words = []
+more_flag = False
+
+args = sys.argv
+args.pop(0)
+for arg in sys.argv :
+    if arg == "-m" :
+        more_flag = True
+    else :
+        words.append(arg)
+
+# fix length of strings to constant value
+def beutify_str(val):
+    l = 15  
+    le = len(val)
+    val = val.strip('\t\n\r')
+    if le >= 20:
+        return val
+    for _ in range(0,(l-le)/2):
+        val = " " + val + " "
+    return val
+
+
+# get header info of the table
+def get_header(table) :
+    header = []
+    for th in table.find_all("th") :
+        header.append(th.text)
+    return header
+
+# get data from table row
+def get_row(tr) :
+    row = []
+    for td in tr.find_all("td"):
+        row.append(td.text)
+    return row
+
+# get table data with headers and rows
+def get_table_data(table):
+
+    # check is table empty or not
+    if table is None :
+        return
+
+    table_data = []
+
+    # append header data
+    header =  get_header(table)
+    table_data.append(header)
+
+    # append data at each row of table
+    for tr in table.find_all("tr") :
+        row = get_row (tr)
+        # check is row has enough data to display
+        if len(row) > 4 :
+            table_data.append(row)
+    return table_data
+
+# translate function
+def translate (word) :
+
+    lim = 60
+    dots = ""
+    for _ in range(0,lim) :
+        dots = dots + "-"
+
+    # use Tureng to search
+    print("\n%s\n Translating word=[%s] ...    \n%s" % (dots, word, dots))
+    url = "http://tureng.com/en/turkish-english/%s" % (word)
+    r = requests.get(url)
+
+    # initialize parser
+    soup = BeautifulSoup(r.text, 'html.parser')
+
+    # find result div
+    div = soup.find(attrs={"class": "tureng-searchresults-content"})
+
+    # initialize titles for each table
+    titles = []
+    for h2 in div.find_all("h2"):
+        titles.append(h2.text)
+
+    # print tables
+    counter = 0
+    tables = soup.find_all(attrs={"class": "searchResultsTable"})
+    
+
+    # to do not print detail info
+    any_result = False
+    for table in tables :
+        # check if detailed info printed or not
+        if not more_flag and "other" in titles[counter]:
+            continue
+
+        # printing the title of table
+        print("\n\n %s\n" % (titles[counter]))
+
+        # printing table data
+        table_data = get_table_data(table) 
+        result = AsciiTable(table_data)
+        print(result.table)
+        any_result = True
+        counter = counter + 1
+    if not any_result : 
+        print(" No Result Found!")
+
+# translate given word
+for word in words :
+    translate(word)
+    
+# ...
+input("\n Press Enter to continue...\n")
+
+    
