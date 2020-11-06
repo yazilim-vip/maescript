@@ -16,7 +16,6 @@ MAESCRIPT_USER_BACUP_DIR=$MAESCRIPT_USER_CONFIG_DIR
 # Initialize Binary Path
 PATH=$PATH:$MAESCRIPT_HOME/bin
 
-echo "here"
 # Aliases
 alias reconf='source ~/.bashrc'
 
