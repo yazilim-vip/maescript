@@ -1,8 +1,7 @@
 [<< home](../)
-1. [Installation](./INSTALLATION.md)
-2. [Scripts](./SCRIPTS.md)
-3. Auto-Complete Functions
-4. [Configuration](./CONFIGURATION.md)
+1. [Scripts](./SCRIPTS.md)
+2. Auto-Complete Functions
+3. [Configuration](./CONFIGURATION.md)
 
 # Auto-Complete Functions
 * There are pre-defined functions that could be auto-complete options added. 

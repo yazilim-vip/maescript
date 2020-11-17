@@ -1,8 +1,7 @@
 [<< home](../)
-1. [Installation](./INSTALLATION.md)
-2. Scripts
-3. [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md)
-4. [Configuration](./CONFIGURATION.md)
+1. Scripts
+2. [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md)
+3. [Configuration](./CONFIGURATION.md)
 
 # Scripts
 ### Tureng
