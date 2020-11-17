@@ -1,7 +1,4 @@
 Currently only **bash** and **zsh** shells supported.
-1. [Scripts](./docs/SCRIPTS.md)
-2. [Auto-Complete Functions](./docs/AUTO_COMPLETE_FUNCTIONS.md)
-3. [Configuration](./docs/CONFIGURATION.md)
 
 # Installation
 
