@@ -1,16 +1,9 @@
-## Welcome to GitHub Pages
-
 Very useful set of linux commands and configurations to enhance your terminal experience on Linux. \
 Currently only **bash** and **zsh** shells supported.
 
-1. [Installation](./docs/INSTALLATION.md)
-2. [Scripts](./docs/SCRIPTS.md)
-3. [Auto-Complete Functions](./docs/AUTO_COMPLETE_FUNCTIONS.md)
-4. [Configuration](./docs/CONFIGURATION.md)
-
 ## Installation
 
-### Install with Setup Script
+**Install with Setup Script**
 **Bash**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/main/install.sh)"
@@ -21,7 +14,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/ma
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/main/install.sh)"
 ```
 
-### Install manually
+**Install manually**
 1. Clone repository into a directory
 2. For bash; add following lines to your .bashrc file
    ```sh
@@ -35,7 +28,7 @@ zsh -c "$(curl -fsSL https://raw.githubusercontent.com/yazilim-vip/maescript/mai
    ```
 
 ## Scripts
-### Tureng
+**Tureng**
 python script what provides translation CLI based on [tureng](https://tureng.com)
 
 ```
@@ -43,13 +36,13 @@ Usage: tureng [-m] <word1> <word2> .. <word n>
 Options:
   -m     to get detailed info about word
 ```
-#### Example
+**Example**
 ```
 tureng car
 ```
 **Output:** [example_output.png](./docs/ex_tureng.png)
 
-### JDK Installer
+**JDK Installer**
 to install Java JDK from *tar* archive from given path
 
 ```
@@ -58,7 +51,7 @@ Options:
   JDK_ARCHIVE_PATH      Path to JDK Archive file to install
 ```
 
-### portkill
+**portkill**
 to kill a process that allocates given port
 ```
 Usage: portkill <port>
@@ -77,14 +70,14 @@ Options:
 * To call each of them, you could use prefix (which should be configured manually [see](./CONFIGURATION.md))
   * e.g. maedoaction, maecdir, maeconn
 
-### cdir
+**cdir**
 To collect your folders so that you can navigate faster. \
 **Pre-Defined Directories** 
 * maehome : installation directory of maescript
 * maeconfig : config folder for maescript
 * maebin : folder that binaries store
 
-### doaction 
+**doaction **
 To collect your useful actions, commands etc. so that you can execute that command faster \
 **Pre-Defined Actions** 
 * tureng: tureng script
@@ -94,14 +87,14 @@ To collect your useful actions, commands etc. so that you can execute that comma
 * update: update maescript insallation
 * confexport: export your maescript configuration (you should pass export dir as argument e.g.: maedoaction confexport /path/to/backup)
 
-### conn
+**conn**
 To collect your useful remote server connection commands so that you can connect  faster
 
 
 ## Configuration
 There are some extra variables that you could be used for custom configuration.
 
-### MAESCRIPT_PREFIX
+**MAESCRIPT_PREFIX**
 This variable has default value **mae**. You should set a value for this variable before loading maescript. \
 **E.g. .bashrc file**
 MAESCRIPT_PREFIX=custom
