@@ -1,4 +1,4 @@
-[<< home](../README.md)
+[<< home](../)
 1. [Installation](./INSTALLATION.md)
 2. [Scripts](./SCRIPTS.md)
 3. [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md)
