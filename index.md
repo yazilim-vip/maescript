@@ -67,7 +67,7 @@ Options:
 ## Auto-Complete Functions
 * There are pre-defined functions that could be auto-complete options added. 
 * The key point for using this auto-complete functions is that, you allowed to your autocomplete options easily
-* To call each of them, you could use prefix (which should be configured manually [see](./CONFIGURATION.md))
+* To call each of them, you could use prefix (which should be configured manually)
   * e.g. maedoaction, maecdir, maeconn
 
 ### cdir
@@ -100,7 +100,7 @@ This variable has default value **mae**. You should set a value for this variabl
 MAESCRIPT_PREFIX=custom
 source /path/to/maescrit
 
-Then, you could use [Auto-Complete Functions](./AUTO_COMPLETE_FUNCTIONS.md) with this prefix;
+Then, you could use Auto-Complete Functions with this prefix;
 * customcdir
 * customdoactoin
 * customconn
