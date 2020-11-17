@@ -36,7 +36,7 @@ Usage: tureng [-m] <word1> <word2> .. <word n>
 Options:
   -m     to get detailed info about word
 ```
-#### Example
+**Example**
 ```
 tureng car
 ```
